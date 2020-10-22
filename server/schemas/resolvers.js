@@ -89,7 +89,7 @@ const resolvers = {
         addFriend: async (parent, {friendId}, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
-                    {_id: context.user_id},
+                    {_id: context.user._id},
                     {$addToSet: {friends: friendId}},
                     {new: true}
                 )
