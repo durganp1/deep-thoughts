@@ -16,6 +16,15 @@ import Signup from './pages/Signup';
 
 // ESTABLISH CONNECTION TO THE BACK-END SERVERS ENDPOINT
 const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
   uri: '/graphql'
 });
 
