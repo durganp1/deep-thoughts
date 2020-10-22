@@ -11,7 +11,7 @@ import Home from './pages/Home';
 
 // ESTABLISH CONNECTION TO THE BACK-END SERVERS ENDPOINT
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql'
+  uri: '/graphql'
 });
 
 function App() {
